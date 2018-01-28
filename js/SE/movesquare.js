@@ -13,8 +13,6 @@
         }
     }
    
-    console.log("Cur " + typeof indexCurrent + indexCurrent);
-    console.log("Zer " + typeof indexZero + indexZero);
     if (indexCurrent - 3 === indexZero ||
         indexCurrent + 3 === indexZero ||
         indexCurrent - 1 === indexZero && indexCurrent !== 3 && indexCurrent !== 6 ||
@@ -27,6 +25,5 @@
 }
 var el = document.querySelectorAll("#field.row div");
 for (var index = 0; index < el.length; index++) {
-    console.log(el[index].innerText);
     el[index].addEventListener("click", move);
 }
