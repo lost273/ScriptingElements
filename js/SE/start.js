@@ -5,10 +5,8 @@ el.appendChild(newElement);
 */
 var parentContainer = document.getElementById('body-content');
 var elementsToRemove = parentContainer.getElementsByTagName('*');
-var n = elementsToRemove.length;
-for (var index = 0; index < n; index++) {
-    elementsToRemove.removeChild(elementsToRemove[index]);
-    //console.log(elementsToRemove[index]);
+while (elementsToRemove.length !== 0) {
+    parentContainer.removeChild(elementsToRemove[0]);
 }
 
 /*
