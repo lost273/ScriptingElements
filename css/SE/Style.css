@@ -3,6 +3,12 @@
     padding-bottom: 20px;
     font: 14px/24px "Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+#body-content{
+    background-color: #f7f7f9;
+}
+#menu-box{
+    border: solid #f7f7f9;
+}
 #square {
     width: 100px;
     height: 100px;
