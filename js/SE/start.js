@@ -24,9 +24,15 @@ function makeGame(){
 	for(var i = 0; i < 3; i++){
 		var nextRow = parentContainer.appendChild(rowElement.cloneNode(true));
 		for(var j = 0; j < 3; j++){
-			nextRow.appendChild(colElement.cloneNode(true));
+			var el = nextRow.appendChild(colElement.cloneNode(true));
+			if(i === 0 && j === 0) {
+				el.id = "square-empty";
+			} else {
+				el.innerText = "";
+			}
 		}
 	}
+
 }
 
 clearContainers('body-content');
