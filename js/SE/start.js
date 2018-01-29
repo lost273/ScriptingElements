@@ -20,13 +20,14 @@ function setScript(scriptName){
 }
 //set the tab to active class
 function setMenuTab(tab){
-	document.getElementByClassName('nav-link active').className = "nav-link";
+	document.querySelector('.nav-link.active').className = "nav-link";
 	tab.className = "nav-link active";
 }
 //construct html tags for the game
-function makeGame(){
+function makeGame(e){
 	clearContainers('body-content');
 	clearContainers('scripts-block');
+	setMenuTab(e.target);
 	var parentContainer = document.getElementById('body-content');
 	var rowElement = document.createElement('div');
 	rowElement.className = "row";
@@ -52,5 +53,6 @@ function makeSort(e){
 	clearContainers('body-content');
 	clearContainers('scripts-block');
 	setMenuTab(e.target);
-	console.log(e.target.className);
+
+	setScript('sort' + e.target.id + '.js');
 }
