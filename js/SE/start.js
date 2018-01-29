@@ -1,8 +1,8 @@
-/*
-var newElement = document.createElement('p');
-newElement.innerText = '123';
-el.appendChild(newElement);
-*/
+document.getElementById('game').addEventListener('click', makeGame);
+document.getElementById('bubble').addEventListener('click', makeSort);
+document.getElementById('insert').addEventListener('click', makeSort);
+document.getElementById('select').addEventListener('click', makeSort);
+
 //delete contents of the container
 function clearContainers(name){
 	var parentContainer = document.getElementById(name);
@@ -11,8 +11,22 @@ function clearContainers(name){
 	    parentContainer.removeChild(elementsToRemove[0]);
 	}
 }
+//construct html tags for the script
+function setScript(scriptName){
+	var parentContainer = document.getElementById('scripts-block');
+	var scriptTag = document.createElement('script');
+	scriptTag.src = "js/SE/" + scriptName;
+	parentContainer.appendChild(scriptTag);
+}
+//set the tab to active class
+function setMenuTab(tab){
+	document.getElementByClassName('nav-link active').className = "nav-link";
+	tab.className = "nav-link active";
+}
 //construct html tags for the game
 function makeGame(){
+	clearContainers('body-content');
+	clearContainers('scripts-block');
 	var parentContainer = document.getElementById('body-content');
 	var rowElement = document.createElement('div');
 	rowElement.className = "row";
@@ -20,27 +34,23 @@ function makeGame(){
 	var colElement = document.createElement('div');
 	colElement.className = "col-md-1";
 	colElement.id = "square";
-
-	for(var i = 0; i < 3; i++){
+	//construct squares with DIV tags
+	for(var i = 0, k = 0; i < 3; i++){
 		var nextRow = parentContainer.appendChild(rowElement.cloneNode(true));
-		for(var j = 0; j < 3; j++){
-			var el = nextRow.appendChild(colElement.cloneNode(true));
+		for(var j = 0; j < 3; j++, k++){
+			var nextCol = nextRow.appendChild(colElement.cloneNode(true));
 			if(i === 0 && j === 0) {
-				el.id = "square-empty";
+				nextCol.id = "square-empty";
 			} else {
-				el.innerText = "";
+				nextCol.innerText = k;
 			}
 		}
 	}
-
+	setScript('movesquare.js');
 }
-
-clearContainers('body-content');
-clearContainers('scripts-block');
-makeGame();
-/*
-document.getElementById('game').addEventListener('click', makeGame);
-document.getElementById('bubble').addEventListener('click');
-document.getElementById('insert').addEventListener('click');
-document.getElementById('select').addEventListener('click');
-*/
+function makeSort(e){
+	clearContainers('body-content');
+	clearContainers('scripts-block');
+	setMenuTab(e.target);
+	console.log(e.target.className);
+}
