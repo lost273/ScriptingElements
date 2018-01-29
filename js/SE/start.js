@@ -20,9 +20,13 @@ function makeGame(){
 	var colElement = document.createElement('div');
 	colElement.className = "col-md-1";
 	colElement.id = "square";
-	parentContainer.appendChild(rowElement);
-	rowElement.appendChild(colElement);
-	rowElement.appendChild(colElement);
+
+	for(var i = 0; i < 3; i++){
+		var nextRow = parentContainer.appendChild(rowElement.cloneNode(true));
+		for(var j = 0; j < 3; j++){
+			nextRow.appendChild(colElement.cloneNode(true));
+		}
+	}
 }
 
 clearContainers('body-content');
