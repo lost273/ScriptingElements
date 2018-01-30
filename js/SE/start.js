@@ -72,6 +72,7 @@ function makeSort(e){
 			parentContainer.appendChild(pElement.cloneNode(true)).id = "j";
 			parentContainer.appendChild(pElement.cloneNode(true)).id = "t";
 			parentContainer.appendChild(pElement.cloneNode(true)).id = "ti";
+			parentContainer.appendChild(pElement.cloneNode(true)).innerText = "Sorting array:";
 		}
 		for(var j = 0; j < 10; j++, k++){
 			var nextCol = nextRow.appendChild(colElement.cloneNode(true));
@@ -82,6 +83,7 @@ function makeSort(e){
 			nextSmall.innerText = a[k];
 		}
 	}
+	parentContainer.appendChild(document.createElement('br'));
 	var buttonElement = parentContainer.appendChild(document.createElement('button'));
 		buttonElement.className = "btn btn-warning";
 		buttonElement.type = "button";
