@@ -55,6 +55,8 @@ function makeSort(e){
 	clearContainers('scripts-block');
 	setMenuTab(e.target);
 	var parentContainer = document.getElementById('body-content');
+	var pElement = document.createElement('p');
+	parentContainer.appendChild(pElement.cloneNode(true)).innerText = "Current array:";
 	var rowElement = document.createElement('div');
 	rowElement.className = "row";
 	var colElement = document.createElement('div');
@@ -65,12 +67,25 @@ function makeSort(e){
 	for(var i = 0; i < 2; i++){
 		var k = 0;
 		var nextRow = parentContainer.appendChild(rowElement.cloneNode(true));
+		if(i === 0) {
+			parentContainer.appendChild(pElement.cloneNode(true)).id = "i";
+			parentContainer.appendChild(pElement.cloneNode(true)).id = "j";
+			parentContainer.appendChild(pElement.cloneNode(true)).id = "t";
+			parentContainer.appendChild(pElement.cloneNode(true)).id = "ti";
+		}
 		for(var j = 0; j < 10; j++, k++){
 			var nextCol = nextRow.appendChild(colElement.cloneNode(true));
 			var nextSmall = nextCol.appendChild(smallElement.cloneNode(true));
-			nextSmall.id = k;
+			if(i === 1) {
+				nextSmall.id = k;
+			}
 			nextSmall.innerText = a[k];
 		}
 	}
+	var buttonElement = parentContainer.appendChild(document.createElement('button'));
+		buttonElement.className = "btn btn-warning";
+		buttonElement.type = "button";
+		buttonElement.id = "nextiteration";
+		buttonElement.innerText = "Next iteration";
 	setScript('sort' + e.target.id + '.js');
 }
