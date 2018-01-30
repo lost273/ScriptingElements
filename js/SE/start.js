@@ -53,6 +53,17 @@ function makeSort(e){
 	clearContainers('body-content');
 	clearContainers('scripts-block');
 	setMenuTab(e.target);
-
+	//construct squares with DIV tags
+	for(var i = 0, k = 0; i < 3; i++){
+		var nextRow = parentContainer.appendChild(rowElement.cloneNode(true));
+		for(var j = 0; j < 3; j++, k++){
+			var nextCol = nextRow.appendChild(colElement.cloneNode(true));
+			if(i === 0 && j === 0) {
+				nextCol.id = "square-empty";
+			} else {
+				nextCol.innerText = k;
+			}
+		}
+	}
 	setScript('sort' + e.target.id + '.js');
 }
