@@ -23,10 +23,10 @@
     background: #ffffff;
     border: 3px solid silver;
 }
-#square-small {
+div.square-small {
     width: 50px;
-    height: 50px;
+    height: 35px;
     background: #ffffff;
-    border: 3px solid red;
-    font-size: 40px;
+    border: 3px solid #28a745;
+    text-align: center;
 }

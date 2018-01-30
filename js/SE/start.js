@@ -50,19 +50,26 @@ function makeGame(e){
 	setScript('movesquare.js');
 }
 function makeSort(e){
+	var a = [99, -10, 10012, 18, -978, 5623, 463, -9, 287, 49];
 	clearContainers('body-content');
 	clearContainers('scripts-block');
 	setMenuTab(e.target);
+	var parentContainer = document.getElementById('body-content');
+	var rowElement = document.createElement('div');
+	rowElement.className = "row";
+	var colElement = document.createElement('div');
+	colElement.className = "col-md-1";
+	var smallElement = document.createElement('div');
+	smallElement.className = "square-small";
 	//construct squares with DIV tags
-	for(var i = 0, k = 0; i < 3; i++){
+	for(var i = 0; i < 2; i++){
+		var k = 0;
 		var nextRow = parentContainer.appendChild(rowElement.cloneNode(true));
-		for(var j = 0; j < 3; j++, k++){
+		for(var j = 0; j < 10; j++, k++){
 			var nextCol = nextRow.appendChild(colElement.cloneNode(true));
-			if(i === 0 && j === 0) {
-				nextCol.id = "square-empty";
-			} else {
-				nextCol.innerText = k;
-			}
+			var nextSmall = nextCol.appendChild(smallElement.cloneNode(true));
+			nextSmall.id = k;
+			nextSmall.innerText = a[k];
 		}
 	}
 	setScript('sort' + e.target.id + '.js');
