@@ -49,6 +49,7 @@ function makeGame(e){
 	}
 	setScript('movesquare.js');
 }
+//construct html tags for the algorithm
 function makeSort(e){
 	var a = [99, -10, 10012, 18, -978, 5623, 463, -9, 287, 49];
 	clearContainers('body-content');
@@ -84,10 +85,12 @@ function makeSort(e){
 		}
 	}
 	parentContainer.appendChild(document.createElement('br'));
+	//construct button
 	var buttonElement = parentContainer.appendChild(document.createElement('button'));
-		buttonElement.className = "btn btn-warning";
-		buttonElement.type = "button";
-		buttonElement.id = "nextiteration";
-		buttonElement.innerText = "Next iteration";
+	buttonElement.className = "btn btn-warning";
+	buttonElement.type = "button";
+	buttonElement.id = "nextiteration";
+	buttonElement.innerText = "Next iteration";
+	setValues(e.target.id);
 	setScript('sort' + e.target.id + '.js');
 }
