@@ -23,6 +23,18 @@ function setMenuTab(tab){
 	document.querySelector('.nav-link.active').className = "nav-link";
 	tab.className = "nav-link active";
 }
+//set values according what the algorithm
+function setValues(algorithmName){
+	switch(algorithmName){
+		case "bubble":
+		case "select":
+			document.getElementById('i').innerText = "-1";
+		break;
+		case "insert":
+			document.getElementById('j').innerText = "-2";
+		break;
+	}
+}
 //construct html tags for the game
 function makeGame(e){
 	clearContainers('body-content');
