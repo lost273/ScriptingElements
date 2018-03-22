@@ -113,7 +113,9 @@ function makeInterview(e){
 	clearContainers('scripts-block');
 	setMenuTab(e.target);
 	var parentContainer = document.getElementById('body-content');
-	var pElement = document.createElement('p').id = "questiontext";
+	var pElement = document.createElement('p').id = "qnumber";
+	parentContainer.appendChild(pElement.cloneNode(true)).innerText = "Current question: № ";
+	var pElement = document.createElement('p').id = "qtext";
 	parentContainer.appendChild(pElement.cloneNode(true));
 	var buttonElement = parentContainer.appendChild(document.createElement('button'));
 	buttonElement.className = "btn btn-warning";
