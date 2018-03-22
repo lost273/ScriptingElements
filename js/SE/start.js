@@ -2,6 +2,7 @@ document.getElementById('game').addEventListener('click', makeGame);
 document.getElementById('bubble').addEventListener('click', makeSort);
 document.getElementById('insert').addEventListener('click', makeSort);
 document.getElementById('select').addEventListener('click', makeSort);
+document.getElementById('interview').addEventListener('click', makeInterview);
 
 //delete contents of the container
 function clearContainers(name){
@@ -105,4 +106,8 @@ function makeSort(e){
 	buttonElement.innerText = "Next iteration";
 	setValues(e.target.id);
 	setScript('sort' + e.target.id + '.js');
+}
+//make some questions
+function makeInterview(e){
+
 }
