@@ -109,5 +109,16 @@ function makeSort(e){
 }
 //make some questions
 function makeInterview(e){
-
+	clearContainers('body-content');
+	clearContainers('scripts-block');
+	setMenuTab(e.target);
+	var parentContainer = document.getElementById('body-content');
+	var pElement = document.createElement('p').id = "questiontext";
+	parentContainer.appendChild(pElement.cloneNode(true));
+	var buttonElement = parentContainer.appendChild(document.createElement('button'));
+	buttonElement.className = "btn btn-warning";
+	buttonElement.type = "button";
+	buttonElement.id = "nextiquestion";
+	buttonElement.innerText = "Next question >>";
+	setScript('interview.js');
 }
