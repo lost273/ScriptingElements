@@ -113,14 +113,13 @@ function makeInterview(e){
 	clearContainers('scripts-block');
 	setMenuTab(e.target);
 	var parentContainer = document.getElementById('body-content');
-	var pElement = document.createElement('p').id = "qnumber";
-	parentContainer.appendChild(pElement.cloneNode(true)).innerText = "Current question: № ";
-	var pElement = document.createElement('p').id = "qtext";
-	parentContainer.appendChild(pElement.cloneNode(true));
+	var pElement = document.createElement('p');
+	parentContainer.appendChild(pElement.cloneNode(true)).id = "qnumber";
+	parentContainer.appendChild(pElement.cloneNode(true)).id = "qtext";
 	var buttonElement = parentContainer.appendChild(document.createElement('button'));
 	buttonElement.className = "btn btn-warning";
 	buttonElement.type = "button";
-	buttonElement.id = "nextiquestion";
+	buttonElement.id = "nextquestion";
 	buttonElement.innerText = "Next question >>";
 	setScript('interview.js');
 }
